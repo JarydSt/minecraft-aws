@@ -1,0 +1,33 @@
+[Unit]
+Description=Minecraft Java Server in Docker
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory={{ minecraft_dir }}
+ExecStartPre=-/usr/bin/docker rm -f minecraft
+ExecStartPre=/usr/bin/docker pull itzg/minecraft-server:latest
+ExecStart=/usr/bin/docker run --rm \
+  --name minecraft \
+  -p 25565:25565 \
+  -e EULA=TRUE \
+  -e TYPE=VANILLA \
+  -e ENABLE_QUERY=true \
+  -e QUERY_PORT=25565 \
+  -e SERVER_PORT=25565 \
+  -e MEMORY=768M \
+  -e MAX_PLAYERS=5 \
+  -e VIEW_DISTANCE=6 \
+  -e SIMULATION_DISTANCE=4 \
+  -e MOTD="AWS Minecraft Server - IaC" \
+  -v {{ minecraft_dir }}/data:/data \
+  itzg/minecraft-server:latest
+ExecStop=/usr/bin/docker exec minecraft rcon-cli stop
+TimeoutStartSec=300
+TimeoutStopSec=120
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
