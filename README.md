@@ -223,10 +223,31 @@ terraform -chdir=terraform output nmap_command
 
 # Resources and Sources Used
 
-- Terraform documentation
-- Terraform AWS provider documentation for EC2 instances and security groups
-- Ansible inventory and connection documentation
-- Docker Minecraft server image documentation
-- Minecraft EULA
-- AWS EC2 documentation
-- AWS security group documentation
+Terraform Documentation
+Used as the main reference for infrastructure as code concepts and Terraform project structure.
+Terraform AWS Provider: aws_instance
+Used as a reference for provisioning the EC2 instance resource.
+HashiCorp Terraform AWS EC2 Tutorial
+Used as a reference for creating AWS EC2 infrastructure with Terraform.
+AWS CLI Environment Variables
+Used as a reference for AWS Academy temporary credentials and CLI authentication.
+AWS EC2 Security Groups
+Used as a reference for configuring inbound access to SSH and Minecraft TCP port 25565.
+Ansible Inventory Documentation
+Used as a reference for defining the EC2 instance as an Ansible managed host.
+Ansible SSH Connection Documentation
+Used as a reference for configuring Ansible to connect to the EC2 instance over SSH.
+Ansible Playbook CLI Documentation
+Used as a reference for running the configuration playbook.
+itzg/minecraft-server Docker Image
+Used as the Minecraft server Docker image. This image exposes the standard Minecraft server port 25565 and automatically downloads the server version.
+itzg Minecraft Server Docker Configuration Docs
+Used as a reference for configuring Minecraft server properties through Docker environment variables.
+itzg Minecraft Server RCON Command Docs
+Used as a reference for sending the Minecraft stop command through rcon-cli during service shutdown.
+systemd Service Documentation
+Used as a reference for creating the Minecraft systemd service and defining startup/shutdown behavior.
+nmap Reference Guide
+Used as a reference for the nmap -sV -Pn -p T:25565 <instance_public_ip> verification command.
+GitHub Markdown Basic Syntax
+Used as a reference for formatting this README.
