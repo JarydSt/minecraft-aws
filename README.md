@@ -251,3 +251,5 @@ nmap Reference Guide
 Used as a reference for the nmap -sV -Pn -p T:25565 <instance_public_ip> verification command.
 GitHub Markdown Basic Syntax
 Used as a reference for formatting this README.
+
+AI assistance was used to help organize the repository structure and draft parts of the documentation. The implementation was reviewed against the official documentation listed above.
